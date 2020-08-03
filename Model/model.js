@@ -38,24 +38,20 @@ exports.getTracksByArtistID = async (id) => {
 
 exports.getLyrics = async (artist, tracksList) => {
   if (!tracksList.length) return "There is no track list";
-  if (!artist || typeof artist !== "string")
+  if (!artist || typeof artist !== "string") {
     return "Make sure the artist exists or try again";
-
-  try {
-    let trackLyrics = [];
-    tracksList.forEach((track) => {
-      //   console.log(track);
-      let response = axios.get(`https://api.lyrics.ovh/v1/${artist}/${track}`);
-      // let { lyrics } = response.data;
-      console.log(response, "response");
-    });
-    console.log(trackLyrics, "tracks");
-    return trackLyrics;
-  } catch (error) {
-    console.log(error, "error log");
-    // const { status, data } = error.response;
-    // const errMsg = "HTTP Error - " + data.error + " " + status;
-    // return errMsg;
-    return error;
   }
+
+  let trackLyrics = await Promise.all(
+    tracksList.map(async (track) => {
+      let response = await axios.get(
+        `https://api.lyrics.ovh/v1/${artist}/${track}`
+      );
+
+      let lyrics = response.data.lyrics;
+      return lyrics;
+    })
+  );
+
+  return trackLyrics;
 };

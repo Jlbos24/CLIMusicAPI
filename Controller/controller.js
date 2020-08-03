@@ -14,10 +14,11 @@ const {
 const getLyricData = async () => {
   try {
     const artist = process.argv[2]; // assign cli input to constant artist variable
-
+    // use promise.all here
     let data = await findArtist(artist);
     let tracks = await getTracksByArtistID(data.id);
     let lyrics = await getLyrics(artist, tracks);
+    console.log(lyrics, "lyrics");
   } catch (error) {
     const { status, data } = error.response;
     const errMsg = "HTTP Error - " + data.error + " " + status;

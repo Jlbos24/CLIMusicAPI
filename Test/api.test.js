@@ -55,7 +55,7 @@ describe("Get Lyrics for a given Track List", () => {
     expect(argArtist).toBeString();
     expect(outcome).toBe("Make sure the artist exists or try again");
   });
-  test.only("When passing a single track, function returns an array with track lyrics", async () => {
+  test("When passing a single track, function returns an array with track lyrics", async () => {
     const argArtist = "Meat Loaf";
     const argList = ["Bat Out of Hell"];
     const outcome = await getLyrics(argArtist, argList);
@@ -64,9 +64,9 @@ describe("Get Lyrics for a given Track List", () => {
     expect(outcome).toBeArray();
     expect(outcome).toHaveLength(1);
   });
-  test("When passing a single track, function returns an array with track lyrics", async () => {
+  test("When passing multiple tracks, function returns an array with track lyrics", async () => {
     const argArtist = "Meat Loaf";
-    const argList = ["Bat Out of Hell", "Badd Attitude", "Heaven Can Wait"];
+    const argList = ["Bat Out of Hell", "Bad Attitude", "Heaven Can Wait"];
     const outcome = await getLyrics(argArtist, argList);
     expect(argList).toBeArray();
     expect(argArtist).toBeString();

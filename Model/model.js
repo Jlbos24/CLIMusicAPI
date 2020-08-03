@@ -11,12 +11,14 @@ exports.findArtist = async (artist) => {
     if (!artists.length) return "Not found please try again";
     else return artists[0];
   } catch (error) {
-    return error;
+    const { status, data } = error.response;
+    const errMsg = "HTTP Error - " + data.error + " " + status;
+    return errMsg;
   }
 };
 
 exports.getTracksByArtistID = async (id) => {
-  //b95ce3ff-3d05-4e87-9e01-c97b66af13d4
+  if (!id) return "Make sure the artist exists or try again";
   try {
     let response = await axios.get(
       `http://musicbrainz.org/ws/2/work?artist=${id}&limit=100&fmt=json`
@@ -26,11 +28,30 @@ exports.getTracksByArtistID = async (id) => {
     works.forEach((track) => {
       tracksList.push(track.title);
     });
-    console.log(tracksList, "tracks");
-
-    //return works;
+    return tracksList;
   } catch (error) {
-    console.log(error);
-    return error;
+    const { status, data } = error.response;
+    const errMsg = "HTTP Error - " + data.error + " " + status;
+    return errMsg;
   }
+};
+
+exports.getLyrics = async (artist, tracksList) => {
+  if (!tracksList.length) return "There is no track list";
+  if (!artist || typeof artist !== "string") {
+    return "Make sure the artist exists or try again";
+  }
+
+  let trackLyrics = await Promise.all(
+    tracksList.map(async (track) => {
+      let response = await axios.get(
+        `https://api.lyrics.ovh/v1/${artist}/${track}`
+      );
+
+      let lyrics = response.data.lyrics;
+      return lyrics;
+    })
+  );
+
+  return trackLyrics;
 };

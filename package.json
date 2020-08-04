@@ -7,7 +7,7 @@
     "search": "./Controller/controller.js"
   },
   "scripts": {
-    "test": "jest Test/api.test.js"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -22,7 +22,6 @@
   "homepage": "https://github.com/Jlbos24/CLIMusicAPI#readme",
   "devDependencies": {
     "axios": "^0.19.2",
-    "express": "^4.17.1",
     "jest": "^26.1.0"
   },
   "dependencies": {

@@ -14,12 +14,12 @@
 - Open the project in your IDE
 - Install Node Package Manager if you dont have it already - npm install npm@latest -g
 - The following packages need to be installed via the terminal - Jest & Axios
-  - You can install all dependencies with the following npm install or individually:
+  - You can install all dependencies with command - npm install - or individually:
   - npm install jest --save-dev
   - npm install jest-extended --save-dev
   - npm install axios --save-dev
 - Once your dependencies are installed you will need to initialise command line prompts
-  - Ensure #!/usr/bin/env node is in Controller.js
+  - Ensure #!/usr/bin/env node is at the top of Controller.js
   - Add the following script to package.json underneath "main" : "index.js"
     - "bin": {"search": "./Controller/controller.js"},
   - Finally in the terminal run the following npm install -g (this will allow you to enter commands into the cli)

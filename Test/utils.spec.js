@@ -1,6 +1,6 @@
 const { tracksAveLength } = require("../Utils/utils.js");
 
-describe.only("Get Average Track Length", () => {
+describe("Get Average Track Length", () => {
   test("When passed an empty array of tracks, function prompts user with message", async () => {
     const arg = [];
     const outcome = await tracksAveLength(arg);

@@ -5,10 +5,11 @@ exports.tracksAveLength = (list) => {
   let wordCount = 0;
   let lyricSplit = [];
 
-  list.forEach((lyric, i) => {
+  // split each word in a track, produces nested arrays for each track
+  list.forEach((lyric) => {
     lyricSplit.push(lyric.split(" "));
   });
-
+  // calculate sum of the average of each nested array by the length of parent array
   lyricSplit.forEach((word) => {
     wordCount += word.length / list.length;
   });

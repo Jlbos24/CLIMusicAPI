@@ -1,35 +1,35 @@
 {
-  "name": "CLIMusicAPI",
-  "version": "1.0.0",
-  "description": "Music API",
-  "main": "index.js",
-  "bin": {
-    "search": "./Controller/controller.js"
-  },
-  "scripts": {
-    "test": "jest"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Jlbos24/CLIMusicAPI.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Jlbos24/CLIMusicAPI/issues"
-  },
-  "homepage": "https://github.com/Jlbos24/CLIMusicAPI#readme",
-  "devDependencies": {
-    "axios": "^0.19.2",
-    "jest": "^26.1.0"
-  },
-  "dependencies": {
-    "jest-extended": "^0.11.5"
-  },
-  "jest": {
-    "setupFilesAfterEnv": [
-      "jest-extended"
-    ]
-  }
+   "name": "CLIMusicAPI",
+   "version": "1.0.0",
+   "description": "Music API",
+   "main": "index.js",
+   "bin": {
+      "search": "./Controller/controller.js"
+   },
+   "scripts": {
+      "test": "jest"
+   },
+   "repository": {
+      "type": "git",
+      "url": "git+https://github.com/Jlbos24/CLIMusicAPI.git"
+   },
+   "keywords": [],
+   "author": "",
+   "license": "ISC",
+   "bugs": {
+      "url": "https://github.com/Jlbos24/CLIMusicAPI/issues"
+   },
+   "homepage": "https://github.com/Jlbos24/CLIMusicAPI#readme",
+   "devDependencies": {
+      "axios": "^0.19.2",
+      "jest": "^26.1.0"
+   },
+   "dependencies": {
+      "jest-extended": "^0.11.5"
+   },
+   "jest": {
+      "setupFilesAfterEnv": [
+         "jest-extended"
+      ]
+   }
 }
